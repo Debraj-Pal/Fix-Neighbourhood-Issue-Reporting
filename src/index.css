@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap");
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f3f2eb;
+  --color-surface: #fbfbf7;
+  --color-surface-muted: #f5f6f1;
+  --color-forest: #285c4d;
+  --color-forest-dark: #1e493d;
+  --color-sage: #dce7dc;
+  --color-sage-deep: #c8d9ca;
+  --color-ink: #26332d;
+  --color-ink-soft: #435149;
+  --color-muted: #68756d;
+  --color-subtle: #89938d;
+  --color-line: #dce2d9;
+  --color-line-strong: #cbd4c9;
+  --color-warning: #956117;
+  --color-warning-soft: #f6ead5;
+  --color-danger: #b54747;
+  --color-danger-soft: #f8e8e6;
+  --color-info: #45685d;
+  --color-info-soft: #e4ece7;
+}
+
+@layer base {
+  html {
+    font-family: "DM Sans", sans-serif;
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  body {
+    min-width: 320px;
+    background: var(--color-canvas);
+  }
+
+  h1,
+  h2,
+  h3,
+  b {
+    font-family: "Manrope", sans-serif;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-forest) 24%, transparent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-sage-deep);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .leaflet-container {
+    font-family: "DM Sans", sans-serif;
+    background: var(--color-sage);
+  }
+
+  .leaflet-civic-pin {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 34px;
+    transform: rotate(45deg);
+    border: 3px solid var(--color-surface);
+    border-radius: 50% 50% 50% 8px;
+    background: var(--color-forest);
+    box-shadow: 0 4px 12px rgb(38 51 45 / 22%);
+  }
+
+  .leaflet-civic-pin span {
+    position: absolute;
+    inset: 9px;
+    border-radius: 999px;
+    background: var(--color-surface);
+  }
+
+  .leaflet-civic-pin--selected {
+    background: var(--color-warning);
+  }
+
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  .leaflet-popup-content-wrapper {
+    border: 1px solid var(--color-line);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgb(38 51 45 / 14%);
+  }
+
+  .civic-map-popup {
+    display: grid;
+    gap: 5px;
+    margin: 2px;
+  }
+
+  .civic-map-popup__category {
+    color: var(--color-forest);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .civic-map-popup strong {
+    color: var(--color-ink);
+    font-size: 14px;
+  }
+
+  .civic-map-popup span:not(.civic-map-popup__category) {
+    color: var(--color-muted);
+    font-size: 12px;
+  }
+
+  .civic-map-popup button {
+    margin-top: 4px;
+    color: var(--color-forest);
+    font-size: 12px;
+    font-weight: 800;
+    text-align: left;
+  }
+}

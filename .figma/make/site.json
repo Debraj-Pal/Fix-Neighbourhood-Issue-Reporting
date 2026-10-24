@@ -1,0 +1,11 @@
+{
+  "title": "Fix My Neighbourhood",
+  "description": "Residents can report, explore, and track neighbourhood issues like potholes and broken streetlights, helping communities follow progress toward resolution.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
